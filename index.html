@@ -61,7 +61,17 @@
     .card p { margin-top:0.5rem; }
     button { padding:0.5rem 1rem; margin:0 0.3rem; cursor:pointer; border:none; border-radius:5px; background:var(--accent); color:white; }
     footer { background:var(--primary); color:white; text-align:center; padding:1.5rem; margin-top:2rem; }
-    .footer-contact { background:var(--light-blue); padding:1rem; border-radius:8px; display:inline-block; margin-top:1rem; color:#000; }
+    .footer-contact {
+  background: var(--light-blue);
+  color:#000;
+  padding:1rem;
+  border-radius:8px;
+  display:block;
+  max-width:600px;       /* limit size on desktop */
+  width:100%;            /* full width on mobile */
+  box-sizing:border-box; /* prevent overflow */
+}
+
     .socials { display:flex; justify-content:center; gap:1rem; margin-top:0.5rem; align-items:center; }
     .socials img { width:25px; height:25px; }
     #blog p, #events div { font-size:1.1rem; color:#ddd; text-align:center; }
@@ -252,17 +262,20 @@
 <section id="events"><h2>Stay Tuned for Updates</h2><div style="text-align:center; font-size:1.2rem; color:#ddd;">Stay Tuned for Updates</div></section>
 
 <section id="contact">
-  <h2>Contact Us</h2>
-  <div class="footer-contact">
-    <p>Email: info@genskills.com | Phone: +234 806 806 4230</p>
-    <p>Visit us in Kazaure, Jigawa State</p>
-    <div class="socials">
-      <img src="x.webp" alt="Twitter"><span>@genskillstech</span>
-      <img src="facebook.webp" alt="Facebook"><span>@genskillstech</span>
-      <img src="instagram.jpg" alt="Instagram"><span>@genskillstech</span>
+  <h2 style="text-align:center; color:#90caf9;">Contact Us</h2>
+  <div style="display:flex; justify-content:center; margin-top:12px; padding:0 1rem;">
+    <div class="footer-contact">
+      <p><strong>Email:</strong> info@genskills.com &nbsp; | &nbsp; <strong>Phone:</strong> +234 806 806 4230</p>
+      <p>Visit us in Kazaure, Jigawa State</p>
+      <div class="socials">
+        <div><img src="x.webp" alt="Twitter"> <span style="color:#fff;">@genskillstech</span></div>
+        <div><img src="facebook.webp" alt="Facebook"> <span style="color:#fff;">@genskillstech</span></div>
+        <div><img src="instagram.jpg" alt="Instagram"> <span style="color:#fff;">@genskillstech</span></div>
+      </div>
     </div>
   </div>
 </section>
+
 
 <footer><p>&copy; 2025 GenSkills Tech Solutions. All rights reserved.</p></footer>
 
@@ -280,3 +293,4 @@ function filterPrograms(category){
 </script>
 </body>
 </html>
+
