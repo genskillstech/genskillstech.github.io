@@ -60,18 +60,41 @@
     .card ul { margin:0.5rem 0 0 1.2rem; }
     .card p { margin-top:0.5rem; }
     button { padding:0.5rem 1rem; margin:0 0.3rem; cursor:pointer; border:none; border-radius:5px; background:var(--accent); color:white; }
-    footer { background:var(--primary); color:white; text-align:center; padding:1.5rem; margin-top:2rem; }
-    .footer-contact {
-  background: var(--card-bg);
-  color: var(--card-text);
-  padding: 1rem;
-  border-radius: 8px;
-  display: block;
-  max-width: 600px;       /* limit size on desktop */
-  width: 100%;            /* full width on mobile */
+   .footer-contact {
+  background: var(--card-bg) !important;   /* force same dim background */
+  color: var(--card-text) !important;      /* white text */
+  padding: 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  max-width: 600px;
+  width: 100%;
   box-sizing: border-box;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* consistent shadow with other cards */
+  text-align: center;
 }
+.footer-contact p {
+  margin: 0.5rem 0;
+}
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.socials div {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.socials img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
 
 
     .socials { display:flex; justify-content:center; gap:1rem; margin-top:0.5rem; align-items:center; }
@@ -267,8 +290,9 @@
   <h2 style="text-align:center; color:#90caf9;">Contact Us</h2>
   <div style="display:flex; justify-content:center; margin-top:12px; padding:0 1rem;">
     <div class="footer-contact">
-      <p><strong>Email:</strong> genskillstech@gmail.com &nbsp; | &nbsp; <strong>Phone:</strong> +234 806 806 4230</p>
-      <p>Visit us: kangada,cikin gari road, Kazaure, Jigawa State</p>
+      <p><strong>Email:</strong> info@genskills.com</p>
+      <p><strong>Phone:</strong> +234 806 806 4230</p>
+      <p>Visit us in Kazaure, Jigawa State</p>
       <div class="socials">
         <div><img src="x.webp" alt="Twitter"> <span>@genskillstech</span></div>
         <div><img src="facebook.webp" alt="Facebook"> <span>@genskillstech</span></div>
@@ -277,6 +301,7 @@
     </div>
   </div>
 </section>
+
 
 
 
@@ -296,5 +321,6 @@ function filterPrograms(category){
 </script>
 </body>
 </html>
+
 
 
