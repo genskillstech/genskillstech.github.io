@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GenSkills Tech Solutions</title>
+  <link rel="icon" type="image/png" href="genskills-logo.png">
+  <style>
+    :root {
+      --primary: #0d47a1;
+      --secondary: #1976d2;
+      --accent: #42a5f5;
+      --highlight: #00e5ff;
+      --background: #2c2f33;
+      --card-bg: #3a3f45;
+      --card-text: #ffffff;
+      --card-highlight: #ffeb3b;
+      --light-blue: #bbdefb;
+    }
+    body { font-family: Arial, sans-serif; margin:0; padding:0; scroll-behavior:smooth; background:var(--background); color:#fff; }
+    header { background: var(--primary); color:white; padding:0.75rem 1.5rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; position:sticky; top:0; z-index:1000; }
+    header .branding { display:flex; align-items:center; gap:0.75rem; }
+    header img.logo { width:60px; height:60px; border-radius:50%; box-shadow:0 4px 12px rgba(0,0,0,0.25); transition: transform 0.3s, box-shadow 0.3s; }
+    header img.logo:hover { transform: scale(1.1); box-shadow:0 6px 16px rgba(0,0,0,0.3); }
+    header .header-text h1 { margin:0; font-size:1.3rem; font-weight:bold; line-height:1.2; }
+    header .header-text p { margin:0; font-size:0.8rem; }
+    nav { display:flex; gap:1rem; margin-left:auto; }
+    nav a { color:white; padding:0.4rem 0.8rem; text-decoration:none; transition:0.3s; }
+    nav a:hover { background:var(--accent); border-radius:4px; }
+    .menu-toggle { display:none; flex-direction:column; cursor:pointer; padding:0.5rem; }
+    .bar { height:3px; width:25px; background:white; margin:4px 0; border-radius:2px; }
+    @media (max-width:768px){
+      header .branding { flex-direction:column; align-items:flex-start; gap:0.5rem; }
+      header img.logo { width:50px; height:50px; }
+      header .header-text h1 { font-size:1.1rem; }
+      header .header-text p { font-size:0.7rem; }
+      nav { display:none; flex-direction:column; width:100%; background:var(--secondary); margin-top:1rem; }
+      nav a { text-align:center; border-top:1px solid rgba(255,255,255,0.2); }
+      .menu-toggle { display:flex; }
+    }
+    section { padding:3rem 2rem; }
+    .hero { background: url('hero-section.jpg') no-repeat center center/cover; color:white; text-align:center; padding:5rem 2rem; position:relative; }
+    .hero::before { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:0; }
+    .hero h1, .hero p { position:relative; z-index:1; }
+    .hero h1 { font-size:3rem; font-weight:bold; line-height:1.2; }
+    .hero h1 span.highlight { color: var(--highlight); }
+    .hero p { margin-top:1rem; font-size:1.3rem; color:#ddd; max-width:800px; margin:auto; }
+    #about { background:transparent; }
+    .about-intro { margin-top:1.5rem; padding:1rem; border-radius:8px; background:var(--light-blue); color:#000; }
+    .about-extra-container { display:flex; flex-wrap:wrap; gap:1.5rem; margin-top:2rem; }
+    .about-extra { flex:1 1 300px; padding:1.2rem; border-radius:8px; }
+    .about-extra.goal { background:#e3f2fd; color:#000; }
+    .about-extra.highlight { background:#ede7f6; color:#000; }
+    .programs, .services-cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:1.5rem; margin-top:1rem; }
+    .card { padding:1.5rem; border-radius:12px; box-shadow:0 2px 5px rgba(0,0,0,0.3); text-align:left; background: var(--card-bg); color:var(--card-text); transition: transform 0.3s, box-shadow 0.3s; }
+    .card:hover { transform: translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.5); }
+    .card img { width:100%; max-height:150px; object-fit:cover; border-radius:12px; margin-bottom:1rem; }
+    .card h3 { margin-top:0.5rem; }
+    .card h4 { margin:0.5rem 0 0.25rem; color: var(--card-highlight); }
+    .card ul { margin:0.5rem 0 0 1.2rem; }
+    .card p { margin-top:0.5rem; }
+    button { padding:0.5rem 1rem; margin:0 0.3rem; cursor:pointer; border:none; border-radius:5px; background:var(--accent); color:white; }
+    footer { background:var(--primary); color:white; text-align:center; padding:1.5rem; margin-top:2rem; }
+    .footer-contact { background:var(--light-blue); padding:1rem; border-radius:8px; display:inline-block; margin-top:1rem; color:#000; }
+    .socials { display:flex; justify-content:center; gap:1rem; margin-top:0.5rem; align-items:center; }
+    .socials img { width:25px; height:25px; }
+    #blog p, #events div { font-size:1.1rem; color:#ddd; text-align:center; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="branding">
+    <img src="genskills-logo.png" alt="GenSkills Logo" class="logo">
+    <div class="header-text"><h1>GenSkills Tech Solutions</h1><p>Empowering Minds, Unlocking Digital Futures</p></div>
+  </div>
+  <div class="menu-toggle" onclick="toggleMenu()"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+  <nav id="navLinks">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#programs">Programs</a>
+    <a href="#services">Services</a>
+    <a href="#blog">Blog</a>
+    <a href="#events">Events</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <h1>Empowering<br>minds unlocking<br><span class="highlight">Digital Futures</span></h1>
+  <p>Bridging the digital gap in underserved communities through comprehensive training, innovation support, and building a safer digital tomorrow for the next generation.</p>
+</section>
+
+<section id="about">
+  <h2>About Us</h2>
+  <div class="about-intro"><p>GenSkills Tech Solutions is dedicated to empowering youth, women, and students with digital literacy and problem-solving skills. We serve as a bridge to innovation and technology for the Kazaure community and beyond.</p></div>
+  <div class="about-extra-container">
+    <div class="about-extra goal"><h3>Our Goal</h3><p>Build a digitally empowered community by providing access to training, mentorship, and innovative tools for future opportunities.</p></div>
+    <div class="about-extra highlight"><h3>Why GenSkills Tech?</h3><p>We are the leading ICT center for training, business support, community development, and digital awareness programs, creating sustainable impact through technology.</p></div>
+  </div>
+</section>
+
+<section id="programs">
+  <h2>Our Programs</h2>
+  <div style="text-align:center; margin-bottom:1.5rem;">
+    <button onclick="filterPrograms('all')">All</button>
+    <button onclick="filterPrograms('kids')">Kids</button>
+    <button onclick="filterPrograms('women')">Women</button>
+    <button onclick="filterPrograms('business')">Business</button>
+    <button onclick="filterPrograms('general')">General</button>
+  </div>
+  <div class="programs">
+    <!-- Program Cards Full Content -->
+    <div class="card" data-category="general">
+      <img src="computer-basics.jpg" alt="Basic Computer & Digital Literacy">
+      <h3>Basic Computer & Digital Literacy</h3>
+      <h4>Learning Objectives</h4>
+      <ul>
+        <li>Learn computer fundamentals</li>
+        <li>Use Microsoft Office and Google Workspace</li>
+        <li>Develop internet research skills</li>
+      </ul>
+      <h4>Outcome</h4>
+      <p>Students will gain confidence in using digital tools for education and business.</p>
+    </div>
+
+    <div class="card" data-category="business">
+      <img src="graphics.webp" alt="Graphics Design">
+      <h3>Graphics Design</h3>
+      <h4>Learning Objectives</h4>
+      <ul>
+        <li>Adobe Photoshop & Illustrator basics</li>
+        <li>Design principles & color theory</li>
+        <li>Branding and marketing visuals</li>
+      </ul>
+      <h4>Outcome</h4>
+      <p>Students create professional visual content for personal or business use.</p>
+    </div>
+
+    <div class="card" data-category="business">
+      <img src="forex.webp" alt="Forex & Crypto">
+      <h3>Forex & Crypto</h3>
+      <h4>Learning Objectives</h4>
+      <ul>
+        <li>Basics of forex and crypto trading</li>
+        <li>Market analysis techniques</li>
+        <li>Risk management</li>
+      </ul>
+      <h4>Outcome</h4>
+      <p>Students learn safe trading practices and investment strategies.</p>
+    </div>
+
+    <div class="card" data-category="business">
+      <img src="digital-marketing.png" alt="Digital Marketing">
+      <h3>Digital Marketing</h3>
+      <h4>Learning Objectives</h4>
+      <ul>
+        <li>Social media marketing</li>
+        <li>Email campaigns & SEO</li>
+        <li>Content creation</li>
+      </ul>
+      <h4>Outcome</h4>
+      <p>Students can market products online efficiently to reach target audiences.</p>
+    </div>
+
+    <div class="card" data-category="kids">
+      <img src="kids-tech.jpg" alt="Kids & Tech Literacy">
+      <h3>Kids & Tech Literacy</h3>
+      <h4>Learning Objectives</h4>
+      <ul>
+        <li>Interactive problem-solving</li>
+        <li>Fun with digital tools</li>
+      </ul>
+      <h4>Outcome</h4>
+      <p>Kids develop early digital skills and creative thinking.</p>
+    </div>
+
+    <div class="card" data-category="general">
+      <img src="cbt.jpg" alt="CBT & Exam Prep">
+      <h3>CBT & Exam Prep</h3>
+      <h4>Learning Objectives</h4>
+      <ul>
+        <li>Familiarity with CBT systems</li>
+        <li>Practice exams & techniques</li>
+        <li>Time management skills</li>
+      </ul>
+      <h4>Outcome</h4>
+      <p>Students become confident in taking CBT exams.</p>
+    </div>
+
+    <div class="card" data-category="women">
+      <img src="women-in-ict.jpg" alt="Women in ICT">
+      <h3>Women in ICT</h3>
+      <h4>Learning Objectives</h4>
+      <ul>
+        <li>Basic & advanced ICT skills</li>
+        <li>Entrepreneurship training</li>
+        <li>Digital career guidance</li>
+      </ul>
+      <h4>Outcome</h4>
+      <p>Women gain confidence and digital skills to succeed professionally.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="services-cards">
+    <div class="card">
+      <img src="it-support.jpg" alt="Tech Support">
+      <h3>Tech Support</h3>
+      <h4>What We Offer</h4>
+      <ul>
+        <li>Hardware/software troubleshooting</li>
+        <li>Network setup & maintenance</li>
+        <li>Remote & onsite support</li>
+      </ul>
+      <h4>Outcome</h4>
+      <p>Clients get fast, reliable support ensuring smooth operations.</p>
+    </div>
+
+    <div class="card">
+      <img src="it-consulting-services.jpg" alt="IT Consultancy">
+      <h3>IT Consultancy</h3>
+      <h4>What We Offer</h4>
+      <ul>
+        <li>System analysis & recommendations</li>
+        <li>Cloud solutions consulting</li>
+        <li>Digital transformation planning</li>
+      </ul>
+      <h4>Outcome</h4>
+      <p>Businesses achieve efficient and scalable IT operations.</p>
+    </div>
+
+    <div class="card">
+      <img src="mentorship.jpg" alt="Mentorship Program">
+      <h3>Mentorship Program</h3>
+      <h4>What We Offer</h4>
+      <ul>
+        <li>Career guidance & skill development</li>
+        <li>Hands-on project mentorship</li>
+        <li>Networking & innovation support</li>
+      </ul>
+      <h4>Outcome</h4>
+      <p>Participants gain real-world experience and confidence.</p>
+    </div>
+  </div>
+</section>
+
+<section id="blog"><h2>Blog & Updates</h2><p>Stay tuned for the latest news, events, and community impact stories from GenSkills.</p></section>
+
+<section id="events"><h2>Stay Tuned for Updates</h2><div style="text-align:center; font-size:1.2rem; color:#ddd;">Stay Tuned for Updates</div></section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <div class="footer-contact">
+    <p>Email: info@genskills.com | Phone: +234 806 806 4230</p>
+    <p>Visit us in Kazaure, Jigawa State</p>
+    <div class="socials">
+      <img src="x.webp" alt="Twitter"><span>@genskillstech</span>
+      <img src="facebook.webp" alt="Facebook"><span>@genskillstech</span>
+      <img src="instagram.jpg" alt="Instagram"><span>@genskillstech</span>
+    </div>
+  </div>
+</section>
+
+<footer><p>&copy; 2025 GenSkills Tech Solutions. All rights reserved.</p></footer>
+
+<script>
+function toggleMenu(){
+  const nav=document.getElementById('navLinks');
+  nav.style.display=(nav.style.display==='flex')?'none':'flex';
+  nav.style.flexDirection='column';
+}
+function filterPrograms(category){
+  document.querySelectorAll('.programs .card').forEach(card=>{
+    card.style.display=(category==='all'||card.dataset.category===category)?'block':'none';
+  });
+}
+</script>
+</body>
+</html>
