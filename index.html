@@ -337,11 +337,11 @@ function toggleMenu() {
     nav.style.display = 'flex';
     nav.style.flexDirection = 'column';
 
-    // Add outside click listener
-    document.addEventListener("click", function handleOutsideClick(e) {
-      if (!nav.contains(e.target) && !e.target.closest(".menu-toggle")) {
+    // Collapse on any click (inside or outside menu)
+    document.addEventListener("click", function handleClickAnywhere(e) {
+      if (!e.target.closest(".menu-toggle")) {
         nav.style.display = 'none';
-        document.removeEventListener("click", handleOutsideClick);
+        document.removeEventListener("click", handleClickAnywhere);
       }
     });
   }
@@ -355,6 +355,7 @@ function filterPrograms(category) {
 </script>
 </body>
 </html>
+
 
 
 
