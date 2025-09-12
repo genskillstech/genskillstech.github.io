@@ -324,22 +324,38 @@
 
 
 
-<footer><p>&copy; 2025 GenSkills Tech Solutions. All rights reserved.</p></footer>
+<footer><p>&copy; 2025 GenSkills Tech Solutions.</p></footer>
 
-<script>
-function toggleMenu(){
-  const nav=document.getElementById('navLinks');
-  nav.style.display=(nav.style.display==='flex')?'none':'flex';
-  nav.style.flexDirection='column';
+<script> 
+function toggleMenu() {
+  const nav = document.getElementById('navLinks');
+
+  // Toggle menu display
+  if (nav.style.display === 'flex') {
+    nav.style.display = 'none';
+  } else {
+    nav.style.display = 'flex';
+    nav.style.flexDirection = 'column';
+
+    // Add outside click listener
+    document.addEventListener("click", function handleOutsideClick(e) {
+      if (!nav.contains(e.target) && !e.target.closest(".menu-toggle")) {
+        nav.style.display = 'none';
+        document.removeEventListener("click", handleOutsideClick);
+      }
+    });
+  }
 }
-function filterPrograms(category){
-  document.querySelectorAll('.programs .card').forEach(card=>{
-    card.style.display=(category==='all'||card.dataset.category===category)?'block':'none';
+
+function filterPrograms(category) {
+  document.querySelectorAll('.programs .card').forEach(card => {
+    card.style.display = (category === 'all' || card.dataset.category === category) ? 'block' : 'none';
   });
 }
 </script>
 </body>
 </html>
+
 
 
 
